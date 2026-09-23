@@ -1,0 +1,100 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 3px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-sky: var(--sky);
+  --color-gold-light: var(--gold-light);
+  --color-subtle: var(--subtle);
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: Montserrat, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 3px;
+  /* Avere Private Wealth: cream paper, deep navy, restrained gold. */
+  --background: #fbfaf8;
+  --foreground: #1b2a36;
+  --card: #ffffff;
+  --card-foreground: #1b2a36;
+  --popover: #ffffff;
+  --popover-foreground: #1b2a36;
+  --primary: #073b68;
+  --primary-foreground: #ffffff;
+  --secondary: #edf3f7;
+  --secondary-foreground: #073b68;
+  --muted: #edf3f7;
+  --muted-foreground: #4a5763;
+  --subtle: #7b8894;
+  --accent: #b4884a;
+  --accent-foreground: #ffffff;
+  --gold-light: #d9bc8a;
+  --sky: #9cd8f0;
+  --link: #0a73b5;
+  --destructive: #b3261e;
+  --destructive-foreground: #ffffff;
+  --border: rgba(7, 59, 104, 0.12);
+  --input: rgba(7, 59, 104, 0.2);
+  --ring: #0a73b5;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .eyebrow {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.3em;
+  }
+}

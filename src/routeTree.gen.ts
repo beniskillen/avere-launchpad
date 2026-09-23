@@ -11,7 +11,31 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdviceDisclaimerRouteImport } from './routes/advice-disclaimer'
+import { Route as ApplyRouteRouteImport } from './routes/apply/route'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorrectionsRouteImport } from './routes/corrections'
+import { Route as FsgRouteImport } from './routes/fsg'
+import { Route as LearnRouteRouteImport } from './routes/learn/route'
+import { Route as LpRouteRouteImport } from './routes/lp/route'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProofRouteRouteImport } from './routes/proof/route'
+import { Route as ServicesRouteRouteImport } from './routes/services/route'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TheAvereMethodRouteImport } from './routes/the-avere-method'
+import { Route as ToolsRouteRouteImport } from './routes/tools/route'
+import { Route as ApplyIndexRouteImport } from './routes/apply/index'
+import { Route as ApplyConfirmRouteImport } from './routes/apply/confirm'
+import { Route as LearnIndexRouteImport } from './routes/learn/index'
+import { Route as LearnSlugRouteImport } from './routes/learn/$slug'
+import { Route as LpIndexRouteImport } from './routes/lp/index'
+import { Route as LpSlugRouteImport } from './routes/lp/$slug'
+import { Route as ProofIndexRouteImport } from './routes/proof/index'
+import { Route as ProofSlugRouteImport } from './routes/proof/$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
+import { Route as ToolsIndexRouteImport } from './routes/tools/index'
+import { Route as ToolsSlugRouteImport } from './routes/tools/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +47,314 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdviceDisclaimerRoute = AdviceDisclaimerRouteImport.update({
+  id: '/advice-disclaimer',
+  path: '/advice-disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyRouteRoute = ApplyRouteRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CorrectionsRoute = CorrectionsRouteImport.update({
+  id: '/corrections',
+  path: '/corrections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FsgRoute = FsgRouteImport.update({
+  id: '/fsg',
+  path: '/fsg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnRouteRoute = LearnRouteRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpRouteRoute = LpRouteRouteImport.update({
+  id: '/lp',
+  path: '/lp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProofRouteRoute = ProofRouteRouteImport.update({
+  id: '/proof',
+  path: '/proof',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRouteRoute = ServicesRouteRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheAvereMethodRoute = TheAvereMethodRouteImport.update({
+  id: '/the-avere-method',
+  path: '/the-avere-method',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsRouteRoute = ToolsRouteRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyIndexRoute = ApplyIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ApplyRouteRoute,
+} as any)
+const ApplyConfirmRoute = ApplyConfirmRouteImport.update({
+  id: '/confirm',
+  path: '/confirm',
+  getParentRoute: () => ApplyRouteRoute,
+} as any)
+const LearnIndexRoute = LearnIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LearnRouteRoute,
+} as any)
+const LearnSlugRoute = LearnSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => LearnRouteRoute,
+} as any)
+const LpIndexRoute = LpIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LpRouteRoute,
+} as any)
+const LpSlugRoute = LpSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => LpRouteRoute,
+} as any)
+const ProofIndexRoute = ProofIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProofRouteRoute,
+} as any)
+const ProofSlugRoute = ProofSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProofRouteRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRouteRoute,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ServicesRouteRoute,
+} as any)
+const ToolsIndexRoute = ToolsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ToolsRouteRoute,
+} as any)
+const ToolsSlugRoute = ToolsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ToolsRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRouteRouteWithChildren
+  '/learn': typeof LearnRouteRouteWithChildren
+  '/lp': typeof LpRouteRouteWithChildren
+  '/proof': typeof ProofRouteRouteWithChildren
+  '/services': typeof ServicesRouteRouteWithChildren
+  '/tools': typeof ToolsRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/advice-disclaimer': typeof AdviceDisclaimerRoute
   '/contact': typeof ContactRoute
+  '/corrections': typeof CorrectionsRoute
+  '/fsg': typeof FsgRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/the-avere-method': typeof TheAvereMethodRoute
+  '/apply/confirm': typeof ApplyConfirmRoute
+  '/learn/$slug': typeof LearnSlugRoute
+  '/lp/$slug': typeof LpSlugRoute
+  '/proof/$slug': typeof ProofSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/tools/$slug': typeof ToolsSlugRoute
+  '/apply/': typeof ApplyIndexRoute
+  '/learn/': typeof LearnIndexRoute
+  '/lp/': typeof LpIndexRoute
+  '/proof/': typeof ProofIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advice-disclaimer': typeof AdviceDisclaimerRoute
   '/contact': typeof ContactRoute
+  '/corrections': typeof CorrectionsRoute
+  '/fsg': typeof FsgRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/the-avere-method': typeof TheAvereMethodRoute
+  '/apply/confirm': typeof ApplyConfirmRoute
+  '/learn/$slug': typeof LearnSlugRoute
+  '/lp/$slug': typeof LpSlugRoute
+  '/proof/$slug': typeof ProofSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/tools/$slug': typeof ToolsSlugRoute
+  '/apply': typeof ApplyIndexRoute
+  '/learn': typeof LearnIndexRoute
+  '/lp': typeof LpIndexRoute
+  '/proof': typeof ProofIndexRoute
+  '/services': typeof ServicesIndexRoute
+  '/tools': typeof ToolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRouteRouteWithChildren
+  '/learn': typeof LearnRouteRouteWithChildren
+  '/lp': typeof LpRouteRouteWithChildren
+  '/proof': typeof ProofRouteRouteWithChildren
+  '/services': typeof ServicesRouteRouteWithChildren
+  '/tools': typeof ToolsRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/advice-disclaimer': typeof AdviceDisclaimerRoute
   '/contact': typeof ContactRoute
+  '/corrections': typeof CorrectionsRoute
+  '/fsg': typeof FsgRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
+  '/the-avere-method': typeof TheAvereMethodRoute
+  '/apply/confirm': typeof ApplyConfirmRoute
+  '/learn/$slug': typeof LearnSlugRoute
+  '/lp/$slug': typeof LpSlugRoute
+  '/proof/$slug': typeof ProofSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/tools/$slug': typeof ToolsSlugRoute
+  '/apply/': typeof ApplyIndexRoute
+  '/learn/': typeof LearnIndexRoute
+  '/lp/': typeof LpIndexRoute
+  '/proof/': typeof ProofIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact'
+  fullPaths:
+    | '/'
+    | '/apply'
+    | '/learn'
+    | '/lp'
+    | '/proof'
+    | '/services'
+    | '/tools'
+    | '/about'
+    | '/advice-disclaimer'
+    | '/contact'
+    | '/corrections'
+    | '/fsg'
+    | '/privacy'
+    | '/terms'
+    | '/the-avere-method'
+    | '/apply/confirm'
+    | '/learn/$slug'
+    | '/lp/$slug'
+    | '/proof/$slug'
+    | '/services/$slug'
+    | '/tools/$slug'
+    | '/apply/'
+    | '/learn/'
+    | '/lp/'
+    | '/proof/'
+    | '/services/'
+    | '/tools/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact'
-  id: '__root__' | '/' | '/about' | '/contact'
+  to:
+    | '/'
+    | '/about'
+    | '/advice-disclaimer'
+    | '/contact'
+    | '/corrections'
+    | '/fsg'
+    | '/privacy'
+    | '/terms'
+    | '/the-avere-method'
+    | '/apply/confirm'
+    | '/learn/$slug'
+    | '/lp/$slug'
+    | '/proof/$slug'
+    | '/services/$slug'
+    | '/tools/$slug'
+    | '/apply'
+    | '/learn'
+    | '/lp'
+    | '/proof'
+    | '/services'
+    | '/tools'
+  id:
+    | '__root__'
+    | '/'
+    | '/apply'
+    | '/learn'
+    | '/lp'
+    | '/proof'
+    | '/services'
+    | '/tools'
+    | '/about'
+    | '/advice-disclaimer'
+    | '/contact'
+    | '/corrections'
+    | '/fsg'
+    | '/privacy'
+    | '/terms'
+    | '/the-avere-method'
+    | '/apply/confirm'
+    | '/learn/$slug'
+    | '/lp/$slug'
+    | '/proof/$slug'
+    | '/services/$slug'
+    | '/tools/$slug'
+    | '/apply/'
+    | '/learn/'
+    | '/lp/'
+    | '/proof/'
+    | '/services/'
+    | '/tools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApplyRouteRoute: typeof ApplyRouteRouteWithChildren
+  LearnRouteRoute: typeof LearnRouteRouteWithChildren
+  LpRouteRoute: typeof LpRouteRouteWithChildren
+  ProofRouteRoute: typeof ProofRouteRouteWithChildren
+  ServicesRouteRoute: typeof ServicesRouteRouteWithChildren
+  ToolsRouteRoute: typeof ToolsRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AdviceDisclaimerRoute: typeof AdviceDisclaimerRoute
   ContactRoute: typeof ContactRoute
+  CorrectionsRoute: typeof CorrectionsRoute
+  FsgRoute: typeof FsgRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
+  TheAvereMethodRoute: typeof TheAvereMethodRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,6 +373,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advice-disclaimer': {
+      id: '/advice-disclaimer'
+      path: '/advice-disclaimer'
+      fullPath: '/advice-disclaimer'
+      preLoaderRoute: typeof AdviceDisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply': {
+      id: '/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof ApplyRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -82,13 +394,262 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/corrections': {
+      id: '/corrections'
+      path: '/corrections'
+      fullPath: '/corrections'
+      preLoaderRoute: typeof CorrectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fsg': {
+      id: '/fsg'
+      path: '/fsg'
+      fullPath: '/fsg'
+      preLoaderRoute: typeof FsgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn': {
+      id: '/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof LearnRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lp': {
+      id: '/lp'
+      path: '/lp'
+      fullPath: '/lp'
+      preLoaderRoute: typeof LpRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/proof': {
+      id: '/proof'
+      path: '/proof'
+      fullPath: '/proof'
+      preLoaderRoute: typeof ProofRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-avere-method': {
+      id: '/the-avere-method'
+      path: '/the-avere-method'
+      fullPath: '/the-avere-method'
+      preLoaderRoute: typeof TheAvereMethodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools': {
+      id: '/tools'
+      path: '/tools'
+      fullPath: '/tools'
+      preLoaderRoute: typeof ToolsRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply/': {
+      id: '/apply/'
+      path: '/'
+      fullPath: '/apply/'
+      preLoaderRoute: typeof ApplyIndexRouteImport
+      parentRoute: typeof ApplyRouteRoute
+    }
+    '/apply/confirm': {
+      id: '/apply/confirm'
+      path: '/confirm'
+      fullPath: '/apply/confirm'
+      preLoaderRoute: typeof ApplyConfirmRouteImport
+      parentRoute: typeof ApplyRouteRoute
+    }
+    '/learn/': {
+      id: '/learn/'
+      path: '/'
+      fullPath: '/learn/'
+      preLoaderRoute: typeof LearnIndexRouteImport
+      parentRoute: typeof LearnRouteRoute
+    }
+    '/learn/$slug': {
+      id: '/learn/$slug'
+      path: '/$slug'
+      fullPath: '/learn/$slug'
+      preLoaderRoute: typeof LearnSlugRouteImport
+      parentRoute: typeof LearnRouteRoute
+    }
+    '/lp/': {
+      id: '/lp/'
+      path: '/'
+      fullPath: '/lp/'
+      preLoaderRoute: typeof LpIndexRouteImport
+      parentRoute: typeof LpRouteRoute
+    }
+    '/lp/$slug': {
+      id: '/lp/$slug'
+      path: '/$slug'
+      fullPath: '/lp/$slug'
+      preLoaderRoute: typeof LpSlugRouteImport
+      parentRoute: typeof LpRouteRoute
+    }
+    '/proof/': {
+      id: '/proof/'
+      path: '/'
+      fullPath: '/proof/'
+      preLoaderRoute: typeof ProofIndexRouteImport
+      parentRoute: typeof ProofRouteRoute
+    }
+    '/proof/$slug': {
+      id: '/proof/$slug'
+      path: '/$slug'
+      fullPath: '/proof/$slug'
+      preLoaderRoute: typeof ProofSlugRouteImport
+      parentRoute: typeof ProofRouteRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRouteRoute
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof ServicesRouteRoute
+    }
+    '/tools/': {
+      id: '/tools/'
+      path: '/'
+      fullPath: '/tools/'
+      preLoaderRoute: typeof ToolsIndexRouteImport
+      parentRoute: typeof ToolsRouteRoute
+    }
+    '/tools/$slug': {
+      id: '/tools/$slug'
+      path: '/$slug'
+      fullPath: '/tools/$slug'
+      preLoaderRoute: typeof ToolsSlugRouteImport
+      parentRoute: typeof ToolsRouteRoute
+    }
   }
 }
 
+interface ApplyRouteRouteChildren {
+  ApplyConfirmRoute: typeof ApplyConfirmRoute
+  ApplyIndexRoute: typeof ApplyIndexRoute
+}
+
+const ApplyRouteRouteChildren: ApplyRouteRouteChildren = {
+  ApplyConfirmRoute: ApplyConfirmRoute,
+  ApplyIndexRoute: ApplyIndexRoute,
+}
+
+const ApplyRouteRouteWithChildren = ApplyRouteRoute._addFileChildren(
+  ApplyRouteRouteChildren,
+)
+
+interface LearnRouteRouteChildren {
+  LearnSlugRoute: typeof LearnSlugRoute
+  LearnIndexRoute: typeof LearnIndexRoute
+}
+
+const LearnRouteRouteChildren: LearnRouteRouteChildren = {
+  LearnSlugRoute: LearnSlugRoute,
+  LearnIndexRoute: LearnIndexRoute,
+}
+
+const LearnRouteRouteWithChildren = LearnRouteRoute._addFileChildren(
+  LearnRouteRouteChildren,
+)
+
+interface LpRouteRouteChildren {
+  LpSlugRoute: typeof LpSlugRoute
+  LpIndexRoute: typeof LpIndexRoute
+}
+
+const LpRouteRouteChildren: LpRouteRouteChildren = {
+  LpSlugRoute: LpSlugRoute,
+  LpIndexRoute: LpIndexRoute,
+}
+
+const LpRouteRouteWithChildren =
+  LpRouteRoute._addFileChildren(LpRouteRouteChildren)
+
+interface ProofRouteRouteChildren {
+  ProofSlugRoute: typeof ProofSlugRoute
+  ProofIndexRoute: typeof ProofIndexRoute
+}
+
+const ProofRouteRouteChildren: ProofRouteRouteChildren = {
+  ProofSlugRoute: ProofSlugRoute,
+  ProofIndexRoute: ProofIndexRoute,
+}
+
+const ProofRouteRouteWithChildren = ProofRouteRoute._addFileChildren(
+  ProofRouteRouteChildren,
+)
+
+interface ServicesRouteRouteChildren {
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteRouteChildren: ServicesRouteRouteChildren = {
+  ServicesSlugRoute: ServicesSlugRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteRouteWithChildren = ServicesRouteRoute._addFileChildren(
+  ServicesRouteRouteChildren,
+)
+
+interface ToolsRouteRouteChildren {
+  ToolsSlugRoute: typeof ToolsSlugRoute
+  ToolsIndexRoute: typeof ToolsIndexRoute
+}
+
+const ToolsRouteRouteChildren: ToolsRouteRouteChildren = {
+  ToolsSlugRoute: ToolsSlugRoute,
+  ToolsIndexRoute: ToolsIndexRoute,
+}
+
+const ToolsRouteRouteWithChildren = ToolsRouteRoute._addFileChildren(
+  ToolsRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApplyRouteRoute: ApplyRouteRouteWithChildren,
+  LearnRouteRoute: LearnRouteRouteWithChildren,
+  LpRouteRoute: LpRouteRouteWithChildren,
+  ProofRouteRoute: ProofRouteRouteWithChildren,
+  ServicesRouteRoute: ServicesRouteRouteWithChildren,
+  ToolsRouteRoute: ToolsRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AdviceDisclaimerRoute: AdviceDisclaimerRoute,
   ContactRoute: ContactRoute,
+  CorrectionsRoute: CorrectionsRoute,
+  FsgRoute: FsgRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
+  TheAvereMethodRoute: TheAvereMethodRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,14 +1,6 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Campaign pages are also marked noindex. A project-site robots.txt
+# is not the host-root file Google reads for github.io.
+Sitemap: https://beniskillen.github.io/avere-launchpad/sitemap.xml

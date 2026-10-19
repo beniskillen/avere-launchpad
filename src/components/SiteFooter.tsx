@@ -1,23 +1,9 @@
 import { Link } from "@tanstack/react-router";
 
 const siteLinks = [
-  { to: "/", label: "Home" },
   { to: "/the-avere-method", label: "The Avere Method" },
   { to: "/services", label: "Services" },
-  { to: "/learn", label: "Learn" },
-  { to: "/tools", label: "Tools" },
-  { to: "/proof", label: "Past work" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-] as const;
-
-const work = [
-  ["strategic-private-wealth", "Strategic Private Wealth"],
-  ["mortgage-destroyer", "Mortgage Destroyer"],
-  ["accounting-tax", "Accounting and tax"],
-  ["trust-structures", "Trusts and structures"],
-  ["property", "Property"],
-  ["business-owners", "Business owners"],
+  { to: "/proof", label: "Past Work" },
 ] as const;
 
 const legalLinks = [
@@ -34,7 +20,7 @@ export function SiteFooter({ bare = false }: { bare?: boolean }) {
       <div className="mx-auto max-w-[1180px]">
         {bare ? null : (
           <div className="mb-10 flex flex-col justify-between gap-10 md:flex-row md:items-start">
-            <div className="flex flex-col gap-3.5">
+            <div className="flex max-w-[280px] flex-col gap-3.5">
               <span
                 className="font-display text-[34px] font-medium leading-none text-primary-foreground"
                 style={{ letterSpacing: ".1em", paddingLeft: ".1em" }}
@@ -42,10 +28,10 @@ export function SiteFooter({ bare = false }: { bare?: boolean }) {
                 <span className="text-gold-light">A</span>VERE
               </span>
               <span className="font-display text-base font-medium leading-snug text-gold-light">
-                Wealth, well lived.
+                Pay the home loan down sooner.
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-10">
               <div>
                 <p className="mb-4 text-[9px] font-semibold leading-none text-sky" style={{ letterSpacing: ".26em" }}>
                   SITE
@@ -55,24 +41,6 @@ export function SiteFooter({ bare = false }: { bare?: boolean }) {
                     <li key={link.to}>
                       <Link to={link.to} className="text-[13px] text-primary-foreground/80 hover:text-primary-foreground">
                         {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="mb-4 text-[9px] font-semibold leading-none text-sky" style={{ letterSpacing: ".26em" }}>
-                  WORK
-                </p>
-                <ul className="flex flex-col gap-2.5">
-                  {work.map(([slug, label]) => (
-                    <li key={slug}>
-                      <Link
-                        to="/services/$slug"
-                        params={{ slug }}
-                        className="text-[13px] text-primary-foreground/80 hover:text-primary-foreground"
-                      >
-                        {label}
                       </Link>
                     </li>
                   ))}
@@ -108,7 +76,8 @@ export function SiteFooter({ bare = false }: { bare?: boolean }) {
           <Link to="/advice-disclaimer" className="underline decoration-sky/40 underline-offset-2">
             advice disclaimer
           </Link>{" "}
-          before acting. Past performance is not a guide to future performance. No page on this site promises a return.
+          before acting. Past performance is not a guide to future performance. No page on this site promises a return,
+          a tax outcome, or that a home loan will finish early.
         </p>
       </div>
     </footer>

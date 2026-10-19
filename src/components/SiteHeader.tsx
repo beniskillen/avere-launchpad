@@ -1,15 +1,22 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 
 const nav = [
-  { to: "/the-avere-method", label: "METHOD" },
-  { to: "/services", label: "SERVICES" },
-  { to: "/proof", label: "PROOF" },
-  { to: "/learn", label: "LEARN" },
-  { to: "/about", label: "ABOUT" },
+  { to: "/the-avere-method", label: "The Avere Method" },
+  { to: "/services", label: "Services" },
+  { to: "/proof", label: "Past Work" },
+] as const;
+
+const legal = [
+  { to: "/fsg", label: "Financial Services Guide" },
+  { to: "/privacy", label: "Privacy" },
+  { to: "/terms", label: "Terms" },
+  { to: "/advice-disclaimer", label: "Advice disclaimer" },
+  { to: "/corrections", label: "Corrections" },
 ] as const;
 
 export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const legalActive = legal.some((item) => pathname === item.to);
 
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
@@ -35,28 +42,36 @@ export function SiteHeader() {
               const active = pathname === item.to || pathname.startsWith(`${item.to}/`);
               return (
                 <Link key={item.to} to={item.to} className="flex flex-col items-center gap-1.5">
-                  <span className="text-[10px] font-semibold leading-none text-primary" style={{ letterSpacing: ".18em" }}>
-                    {item.label}
-                  </span>
+                  <span className="text-[11px] font-semibold leading-none text-primary">{item.label}</span>
                   <span className={`h-1 w-1 rounded-full ${active ? "bg-accent" : "bg-transparent"}`} />
                 </Link>
               );
             })}
+            <details className="group relative">
+              <summary className="flex cursor-pointer list-none flex-col items-center gap-1.5">
+                <span className="text-[11px] font-semibold leading-none text-primary">Legal</span>
+                <span className={`h-1 w-1 rounded-full ${legalActive ? "bg-accent" : "bg-transparent"}`} />
+              </summary>
+              <div className="absolute right-0 z-40 mt-3 flex w-64 flex-col gap-3 rounded-sm border border-border bg-card p-4 shadow-sm">
+                {legal.map((item) => (
+                  <Link key={item.to} to={item.to} className="text-sm text-primary hover:text-link">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
           </div>
-          <Link
-            to="/apply"
-            className="rounded-sm bg-primary px-4 py-3 text-[10px] font-semibold leading-none text-primary-foreground transition-colors hover:bg-link md:px-5 md:py-3.5"
-            style={{ letterSpacing: ".16em" }}
-          >
-            APPLY
-          </Link>
           <details className="relative lg:hidden">
-            <summary className="cursor-pointer list-none text-[10px] font-semibold tracking-[0.16em] text-primary">
-              MENU
-            </summary>
-            <div className="absolute right-0 z-40 mt-3 flex w-48 flex-col gap-3 rounded-sm border border-border bg-card p-4 shadow-sm">
+            <summary className="cursor-pointer list-none text-[11px] font-semibold text-primary">Menu</summary>
+            <div className="absolute right-0 z-40 mt-3 flex w-64 flex-col gap-3 rounded-sm border border-border bg-card p-4 shadow-sm">
               {nav.map((item) => (
-                <Link key={item.to} to={item.to} className="text-[12px] font-semibold tracking-[0.14em] text-primary">
+                <Link key={item.to} to={item.to} className="text-sm font-semibold text-primary">
+                  {item.label}
+                </Link>
+              ))}
+              <p className="pt-2 text-[10px] font-semibold tracking-[0.16em] text-subtle">LEGAL</p>
+              {legal.map((item) => (
+                <Link key={item.to} to={item.to} className="text-sm text-primary">
                   {item.label}
                 </Link>
               ))}

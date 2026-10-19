@@ -75,7 +75,22 @@ const results = [
   },
 ];
 
-export function MortgageDestroyerPage({ brand = false }: { brand?: boolean }) {
+const models = [
+  {
+    title: "Debt recycling",
+    body: "Surplus pays the home loan down. The same dollars are drawn on a separate split and used to buy assets that produce income. Interest on that split may be deductible when the purpose, the records and the structure match. What is left after interest and tax goes back to the home loan. The illustration is one invented household at 10% income, then the same household at 6.2% and at 4%. Ten per cent is an assumption for the drawing. It is not a yield Avere expects.",
+  },
+  {
+    title: "The Marginal Tax Bridge",
+    body: "A question, not a product. Is this interest still private if the debt is being used to produce income? If the debt is not producing income, the bridge is not built. The same bank and the same rate can be a different after-tax cost. They can also be the wrong move.",
+  },
+  {
+    title: "The Integrated Alpha Loop",
+    body: "Tax position first. Borrowing power second. An asset third, and only if the first two can hold a vacant month. Income and depreciation come back to the tax position. If a step is not real, the loop stops at paying the loan. That is a finished page.",
+  },
+];
+
+export function MortgageDestroyerPage({ brand = false, home = false }: { brand?: boolean; home?: boolean }) {
   return (
     <div>
       <section className="bg-primary px-6 pb-16 pt-10 md:px-10 md:pb-24 md:pt-16">
@@ -86,27 +101,80 @@ export function MortgageDestroyerPage({ brand = false }: { brand?: boolean }) {
             </p>
           ) : null}
           <p className="mb-5 mt-8 text-[11px] font-semibold tracking-[0.22em] text-sky">
-            THE MORTGAGE DESTROYER · AVERE PRIVATE WEALTH · AFSL 525361
+            {home
+              ? "AVERE PRIVATE WEALTH · DEBT RECYCLING · AFSL 525361"
+              : "THE MORTGAGE DESTROYER · AVERE PRIVATE WEALTH · AFSL 525361"}
           </p>
           <h1 className="max-w-[18ch] font-display text-[clamp(36px,6vw,64px)] font-medium leading-[1.08] text-primary-foreground">
-            Australia has over $10 trillion in housing equity. Most of it is never given a job.
+            {home
+              ? "Debt recycling, so everyday Australians can pay the home loan down sooner."
+              : "Australia has over $10 trillion in housing equity. Most of it is never given a job."}
           </h1>
-          <p className="mt-6 max-w-[560px] text-lg leading-[1.7] text-primary-foreground/80">
-            How much of yours is sitting in the walls, doing nothing but waiting for the 30-year term to finish?
-          </p>
+          {home ? (
+            <div className="mt-6 max-w-[640px] space-y-4 text-lg leading-[1.7] text-primary-foreground/80">
+              <p>
+                Avere Private Wealth is committed to helping people pay their home loans down sooner, with as little risk as the household can actually bear, so economic security can arrive before a 30-year contract ends.
+              </p>
+              <p>
+                The model gives surplus two jobs. It reduces the home loan, then the same dollars are borrowed back to buy income-producing assets. After interest and tax, what is left returns to the home loan. The debt does not vanish on day one.
+              </p>
+            </div>
+          ) : (
+            <p className="mt-6 max-w-[560px] text-lg leading-[1.7] text-primary-foreground/80">
+              How much of yours is sitting in the walls, doing nothing but waiting for the 30-year term to finish?
+            </p>
+          )}
           <a
             href="#apply"
             className="mt-8 inline-block rounded-sm bg-primary-foreground px-6 py-4 text-[11px] font-semibold tracking-[0.16em] text-primary"
           >
             APPLY FOR A WEALTH STRATEGY SESSION
           </a>
-          <p className="mt-4 text-sm text-primary-foreground/60">
-            The session is the application. Matt runs a capped number each fortnight. For homeowners with household income over $200k, and business owners.
+          <p className="mt-4 max-w-[560px] text-sm leading-relaxed text-primary-foreground/60">
+            {home
+              ? "General information, not personal advice. “As little risk as possible” is a limit: if the household cannot hold a bad year, the page says pay the loan and stop. Borrowing to invest can lose money. This is not a promise the loan finishes early."
+              : "The session is the application. Matt runs a capped number each fortnight. For homeowners with household income over $200k, and business owners."}
           </p>
         </div>
       </section>
 
-      <section className="bg-background px-6 py-16 md:px-10 md:py-20">
+      {home ? (
+        <section className="bg-background px-6 py-16 md:px-10 md:py-20">
+          <div className="mx-auto max-w-[980px]">
+            <h2 className="max-w-[22ch] font-display text-3xl font-medium leading-tight text-primary md:text-4xl">
+              The ordinary loan often costs more because the interest is private, and the term is long.
+            </h2>
+            <div className="mt-6 max-w-[720px] space-y-4 text-base leading-[1.75] text-muted-foreground">
+              <p>
+                A principal-and-interest contract of 25 or 30 years front-loads interest. Pay only the minimum and you keep paying that interest for the length of the contract. A cheaper rate on a longer term can cost more interest, not less.
+              </p>
+              <p>
+                Interest on the home you live in is generally not deductible. An offset, or an extra repayment left in the loan, cuts that interest. For many households that is the right choice, and the smaller risk, because the cash stays available and nothing has been bought. It does not change the character of the interest that is left.
+              </p>
+              <p>
+                The costly version of being careful is a mixed redraw: surplus goes in, then comes out later for a car, a holiday and an investment in one transfer. The record of what the money bought is gone, and so is the chance of a clean deduction. Another costly version is equity sitting in the walls for a decade while the original term never moves.
+              </p>
+              <p>
+                Debt recycling is not automatically cheaper than paying the loan down. It costs more when the investment income does not cover the interest, when the asset falls, or when that surplus was the buffer the household needed. The house still secures the debt.
+              </p>
+            </div>
+            <h3 className="mt-14 font-display text-2xl font-medium text-primary md:text-3xl">The models, and where each one stops.</h3>
+            <ul className="mt-6 grid gap-4 md:grid-cols-3">
+              {models.map((model) => (
+                <li key={model.title} className="rounded-2xl border border-border bg-card p-6">
+                  <p className="font-display text-xl font-medium text-primary">{model.title}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{model.body}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 max-w-[720px] text-sm leading-relaxed text-muted-foreground">
+              After a session, if there is work to do, the written strategy is $995. If it cannot identify at least $50,000 of savings and wealth-acceleration opportunities over a 10-year view, the strategy fee comes back. Identifying an opportunity is not a return, a tax saving, or a date the loan will end.
+            </p>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="border-t border-border bg-background px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto max-w-[980px]">
           <h2 className="mb-10 text-center font-display text-3xl font-medium text-primary md:text-4xl">
             The equity is the asset. The mortgage is the part nobody has organised.

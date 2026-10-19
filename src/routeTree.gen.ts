@@ -36,6 +36,7 @@ import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
 import { Route as ToolsIndexRouteImport } from './routes/tools/index'
 import { Route as ToolsSlugRouteImport } from './routes/tools/$slug'
+import { Route as ToolsDebtRecyclingRouteImport } from './routes/tools/debt-recycling'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -172,6 +173,11 @@ const ToolsSlugRoute = ToolsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ToolsRouteRoute,
 } as any)
+const ToolsDebtRecyclingRoute = ToolsDebtRecyclingRouteImport.update({
+  id: '/debt-recycling',
+  path: '/debt-recycling',
+  getParentRoute: () => ToolsRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -195,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/proof/$slug': typeof ProofSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/debt-recycling': typeof ToolsDebtRecyclingRoute
   '/apply/': typeof ApplyIndexRoute
   '/learn/': typeof LearnIndexRoute
   '/lp/': typeof LpIndexRoute
@@ -218,6 +225,7 @@ export interface FileRoutesByTo {
   '/proof/$slug': typeof ProofSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/debt-recycling': typeof ToolsDebtRecyclingRoute
   '/apply': typeof ApplyIndexRoute
   '/learn': typeof LearnIndexRoute
   '/lp': typeof LpIndexRoute
@@ -248,6 +256,7 @@ export interface FileRoutesById {
   '/proof/$slug': typeof ProofSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/debt-recycling': typeof ToolsDebtRecyclingRoute
   '/apply/': typeof ApplyIndexRoute
   '/learn/': typeof LearnIndexRoute
   '/lp/': typeof LpIndexRoute
@@ -279,6 +288,7 @@ export interface FileRouteTypes {
     | '/proof/$slug'
     | '/services/$slug'
     | '/tools/$slug'
+    | '/tools/debt-recycling'
     | '/apply/'
     | '/learn/'
     | '/lp/'
@@ -302,6 +312,7 @@ export interface FileRouteTypes {
     | '/proof/$slug'
     | '/services/$slug'
     | '/tools/$slug'
+    | '/tools/debt-recycling'
     | '/apply'
     | '/learn'
     | '/lp'
@@ -331,6 +342,7 @@ export interface FileRouteTypes {
     | '/proof/$slug'
     | '/services/$slug'
     | '/tools/$slug'
+    | '/tools/debt-recycling'
     | '/apply/'
     | '/learn/'
     | '/lp/'
@@ -548,6 +560,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsSlugRouteImport
       parentRoute: typeof ToolsRouteRoute
     }
+    '/tools/debt-recycling': {
+      id: '/tools/debt-recycling'
+      path: '/debt-recycling'
+      fullPath: '/tools/debt-recycling'
+      preLoaderRoute: typeof ToolsDebtRecyclingRouteImport
+      parentRoute: typeof ToolsRouteRoute
+    }
   }
 }
 
@@ -622,11 +641,13 @@ const ServicesRouteRouteWithChildren = ServicesRouteRoute._addFileChildren(
 
 interface ToolsRouteRouteChildren {
   ToolsSlugRoute: typeof ToolsSlugRoute
+  ToolsDebtRecyclingRoute: typeof ToolsDebtRecyclingRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
 const ToolsRouteRouteChildren: ToolsRouteRouteChildren = {
   ToolsSlugRoute: ToolsSlugRoute,
+  ToolsDebtRecyclingRoute: ToolsDebtRecyclingRoute,
   ToolsIndexRoute: ToolsIndexRoute,
 }
 

@@ -175,13 +175,20 @@ export const learnPieces: LearnPiece[] = [
     title: "Debt recycling, without the costume",
     description: "What debt recycling is in Australia, who it is for, and the step people skip.",
     keyword: "debt recycling australia",
-    cta: { href: "/tools/debt-to-wealth-blueprint", label: "Read the Blueprint" },
+    cta: { href: "/tools/debt-recycling", label: "See the illustration" },
     sections: [
       {
         heading: "What it is",
         paragraphs: [
           "Debt recycling is a way of replacing non-deductible home-loan debt with deductible investment debt, usually by paying down the home loan and redrawing to buy an income-producing asset. The ATO cares about the purpose of the borrowing. A redraw used to buy a car is not recycled into an investment just because you meant well.",
           "The paperwork has to match the story. Split loans, clean redraws, and records of what the money bought are the dull part that makes the deduction real.",
+        ],
+      },
+      {
+        heading: "A drawing of the arithmetic",
+        paragraphs: [
+          "The illustration follows one invented household: a $1,200,000 home loan, $5,000 a month of surplus, tax at 47%, and a mix of income assets. It opens on a 10% a year income assumption, with no change in the asset price, and it shows the same household at 6.2% and at 4%. The home loan only receives extra help from the portfolio when the income clears the interest rate.",
+          "Illustrative purposes only. The 10% figure is an assumption for that drawing. It is not a forecast, not a client result, and not the $995 identification promise.",
         ],
       },
       {

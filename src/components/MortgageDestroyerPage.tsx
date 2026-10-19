@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ApplyForm } from "@/components/ApplyForm";
+import { DebtRecyclingTeaser } from "@/components/DebtRecyclingIllustration";
 
 const stats = [
   ["$2.5T", "Australian mortgage debt"],
@@ -163,6 +164,8 @@ export function MortgageDestroyerPage({ brand = false }: { brand?: boolean }) {
           </div>
         </div>
       </section>
+
+      <DebtRecyclingTeaser />
 
       <section className="bg-background px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto max-w-[760px]">

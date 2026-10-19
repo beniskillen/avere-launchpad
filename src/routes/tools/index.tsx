@@ -3,6 +3,7 @@ import { pageHead } from "@/lib/site";
 
 const tools = [
   ["mortgage-destroyer-calculator", "Mortgage calculator", "Balance, rate, term, extra repayment. The interest if those inputs held still."],
+  ["debt-recycling", "Debt recycling illustration", "One invented household. A 10% income assumption, and what changes when the income is lower. Not a forecast."],
   ["debt-to-wealth-blueprint", "Debt to Wealth Blueprint", "The earlier path, for people the session is not for yet."],
   ["wealth-potential-quiz", "Wealth Potential Quiz", "Six questions. Session or Blueprint. No score theatre."],
   ["rate-audit", "Rate audit", "What your current rate costs over the remaining term. Not a comparison rate from a billboard."],
@@ -31,9 +32,15 @@ function ToolsIndex() {
         <ul className="mt-8 divide-y divide-border border-y border-border">
           {tools.map(([slug, title, body]) => (
             <li key={slug} className="py-5">
-              <Link to="/tools/$slug" params={{ slug }} className="font-display text-2xl font-medium text-primary hover:text-link">
-                {title}
-              </Link>
+              {slug === "debt-recycling" ? (
+                <Link to="/tools/debt-recycling" className="font-display text-2xl font-medium text-primary hover:text-link">
+                  {title}
+                </Link>
+              ) : (
+                <Link to="/tools/$slug" params={{ slug }} className="font-display text-2xl font-medium text-primary hover:text-link">
+                  {title}
+                </Link>
+              )}
               <p className="mt-1 text-sm leading-[1.6] text-muted-foreground">{body}</p>
             </li>
           ))}

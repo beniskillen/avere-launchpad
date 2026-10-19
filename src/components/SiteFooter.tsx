@@ -6,7 +6,7 @@ const siteLinks = [
   { to: "/services", label: "Services" },
   { to: "/learn", label: "Learn" },
   { to: "/tools", label: "Tools" },
-  { to: "/proof", label: "Proof" },
+  { to: "/proof", label: "Past work" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;

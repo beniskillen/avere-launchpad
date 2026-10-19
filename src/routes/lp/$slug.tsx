@@ -1,5 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ApplyForm, RegisterForm } from "@/components/ApplyForm";
+import { MortgageDestroyerPage } from "@/components/MortgageDestroyerPage";
 import { getCampaign } from "@/content/campaigns";
 import { pageHead } from "@/lib/site";
 
@@ -21,6 +22,13 @@ export const Route = createFileRoute("/lp/$slug")({
 
 function Landing() {
   const campaign = Route.useLoaderData();
+  if (campaign.slug === "mortgage-destroyer") {
+    return (
+      <main>
+        <MortgageDestroyerPage brand />
+      </main>
+    );
+  }
   return (
     <main>
       <section className="bg-primary px-6 pb-14 pt-10 md:px-10">

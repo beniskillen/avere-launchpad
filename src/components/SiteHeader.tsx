@@ -3,6 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 const nav = [
   { to: "/the-avere-method", label: "METHOD" },
   { to: "/services", label: "SERVICES" },
+  { to: "/proof", label: "PROOF" },
   { to: "/learn", label: "LEARN" },
   { to: "/about", label: "ABOUT" },
 ] as const;

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { ApplyLink, FinalCta } from "@/components/marketing";
 import { JsonLd } from "@/components/JsonLd";
 import { absoluteUrl, pageHead } from "@/lib/site";
@@ -52,7 +52,11 @@ function About() {
               Matt leads the sessions, the advice and the broking. He has spent more than 20 years across accounting, broking and advice, which is another way of saying he has watched the same household get three different answers from three firms.
             </p>
             <p>
-              Your Corner 360 was the delivery. Avere is the name on the door. The licence is AFSL 525361, held by Avere Private Wealth Pty Ltd. The work did not get less specific because the brand got quieter.
+              Your Corner 360 was the delivery. Avere is the name on the door. The licence is AFSL 525361, held by Avere Private Wealth Pty Ltd. The work did not get less specific because the brand got quieter. Four anonymised client files from that period are on the{" "}
+              <Link to="/proof" className="text-link underline decoration-link/30 underline-offset-4">
+                proof pages
+              </Link>
+              .
             </p>
             <p>
               You can check a financial adviser on the{" "}

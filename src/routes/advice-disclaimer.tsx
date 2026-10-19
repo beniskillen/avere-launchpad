@@ -27,6 +27,9 @@ function DisclaimerPage() {
       <p>
         Lending is subject to the lender’s credit assessment. Nothing here is an approval. Property commentary is not a recommendation to buy a specific asset.
       </p>
+      <p>
+        The proof pages describe past client files from this practice. Past performance is not a guide to what will happen for you. The households are anonymised, and the period is on each page.
+      </p>
     </LegalArticle>
   );
 }

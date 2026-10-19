@@ -14,9 +14,9 @@ export const campaigns: Campaign[] = [
   {
     slug: "mortgage-destroyer",
     eyebrow: "For homeowners with household income over $200k",
-    h1: "Your 30-year mortgage is optional.",
-    lede: "The term on the contract is a default. The session puts your balance, your rate and your structure on one page, and says what to do first.",
-    description: "Apply for a Wealth Strategy Session. The Mortgage Destroyer is the $995 refundable entry for equity-rich Australian homeowners.",
+    h1: "The Mortgage Destroyer",
+    lede: "The equity in Australian housing, and what Avere does with the part that is sitting idle.",
+    description: "The Mortgage Destroyer. Apply for a Wealth Strategy Session. $995 refundable written strategy for equity-rich Australian homeowners. AFSL 525361.",
     problem: [
       "You can name the rate. You probably cannot name the interest you will pay if the loan runs to term, or whether the trust should exist before anyone refinances.",
       "Friends who 'just bought an investment' are not a plan. Neither is a broker who has not spoken to the accountant.",

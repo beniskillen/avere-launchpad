@@ -1,5 +1,6 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { getService } from "@/content/services";
+import { MortgageDestroyerPage } from "@/components/MortgageDestroyerPage";
 import { FaqList, FinalCta } from "@/components/marketing";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema, pageHead } from "@/lib/site";
@@ -21,6 +22,13 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceRoute() {
   const service = Route.useLoaderData();
+  if (service.slug === "mortgage-destroyer") {
+    return (
+      <main>
+        <MortgageDestroyerPage />
+      </main>
+    );
+  }
   return (
     <main>
       <JsonLd

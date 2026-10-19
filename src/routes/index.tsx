@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ApplyLink, FaqList, PrincipleGrid } from "@/components/marketing";
 import { JsonLd } from "@/components/JsonLd";
+import { aud, caseStudies } from "@/content/case-studies";
 import { faqSchema, homeFaqs, organisationSchema, pageHead } from "@/lib/site";
 import { learnHubs } from "@/content/learn";
 
@@ -132,21 +133,32 @@ function Home() {
 
       <section className="border-t border-border bg-card px-6 py-16 md:px-10">
         <div className="mx-auto max-w-[1180px]">
-          <p className="eyebrow mb-4 text-link">PROOF</p>
-          <h2 className="mb-4 max-w-[720px] font-display text-[32px] font-medium leading-snug text-primary">
-            We will publish client numbers when the client has agreed, with the date and the source.
+          <p className="eyebrow mb-4 text-link">PAST WORK</p>
+          <h2 className="mb-4 max-w-[760px] font-display text-[32px] font-medium leading-snug text-primary">
+            Four client files, from when this practice traded as Your Corner 360.
           </h2>
-          <p className="mb-6 max-w-[680px] text-pretty text-base leading-[1.75] text-muted-foreground">
-            Until those notes are cleared, the site carries two teaching examples. Round figures. Not a client. Not a forecast. If you want the real file, that is the session.
+          <p className="mb-8 max-w-[680px] text-pretty text-base leading-[1.75] text-muted-foreground">
+            Avere is that practice. The households are anonymised. Each file has a period, a start position and an end position. Combined, recorded net worth across the four rose by $7.23 million. That is history. It is not a forecast.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/proof/$slug" params={{ slug: "mortgage-walkthrough" }} className="text-sm font-medium text-link underline decoration-link/30 underline-offset-4">
-              A mortgage walkthrough
-            </Link>
-            <Link to="/proof/$slug" params={{ slug: "structure-walkthrough" }} className="text-sm font-medium text-link underline decoration-link/30 underline-offset-4">
-              A structure and tax walkthrough
-            </Link>
+          <div className="grid gap-4 md:grid-cols-2">
+            {caseStudies.map((study) => (
+              <Link
+                key={study.slug}
+                to="/proof/$slug"
+                params={{ slug: study.slug }}
+                className="rounded-md border border-border bg-background p-6 hover:border-accent"
+              >
+                <p className="text-[11px] font-semibold tracking-[0.14em] text-link">{study.timeframe.toUpperCase()}</p>
+                <h3 className="mt-2 font-display text-xl font-medium leading-snug text-primary">{study.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  {aud(study.netWorthBefore)} → {aud(study.netWorthAfter)}
+                </p>
+              </Link>
+            ))}
           </div>
+          <Link to="/proof" className="mt-6 inline-block text-sm font-medium text-link underline decoration-link/30 underline-offset-4">
+            All four files
+          </Link>
         </div>
       </section>
 

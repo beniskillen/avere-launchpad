@@ -29,7 +29,7 @@ export function SiteFooter({ bare = false }: { bare?: boolean }) {
                 <span className="text-gold-light">A</span>VERE
               </span>
               <span className="font-display text-base font-medium leading-snug text-gold-light">
-                Pay the home loan down sooner.
+                Wealth, well lived.
               </span>
             </div>
             <div className="grid grid-cols-2 gap-10">
@@ -89,11 +89,11 @@ export function StickyApply() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
       <Link
-        to="/apply"
+        to="/payoff"
         className="block rounded-sm bg-primary py-3.5 text-center text-[10px] font-semibold leading-none text-primary-foreground"
         style={{ letterSpacing: ".16em" }}
       >
-        APPLY FOR A SESSION
+        SEE THE CASE STUDY
       </Link>
     </div>
   );

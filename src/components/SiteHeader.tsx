@@ -1,9 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 
 const nav = [
-  { to: "/the-avere-method", label: "The Avere Method" },
-  { to: "/services", label: "Services" },
-  { to: "/proof", label: "Past Work" },
+  { href: "/#private-wealth", label: "Private Wealth" },
+  { href: "/#finance", label: "Finance" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 const legal = [
@@ -40,12 +41,12 @@ export function SiteHeader() {
         <nav className="flex items-center gap-4 sm:gap-6">
           <div className="hidden items-center gap-6 lg:flex">
             {nav.map((item) => {
-              const active = pathname === item.to || pathname.startsWith(`${item.to}/`);
+              const active = item.href === "/contact" && (pathname === "/contact" || pathname.startsWith("/contact/"));
               return (
-                <Link key={item.to} to={item.to} className="flex flex-col items-center gap-1.5">
+                <a key={item.label} href={item.href} className="flex flex-col items-center gap-1.5">
                   <span className="text-[11px] font-semibold leading-none text-primary">{item.label}</span>
                   <span className={`h-1 w-1 rounded-full ${active ? "bg-accent" : "bg-transparent"}`} />
-                </Link>
+                </a>
               );
             })}
             <details className="group relative">
@@ -66,9 +67,9 @@ export function SiteHeader() {
             <summary className="cursor-pointer list-none text-[11px] font-semibold text-primary">Menu</summary>
             <div className="absolute right-0 z-40 mt-3 flex w-64 flex-col gap-3 rounded-sm border border-border bg-card p-4 shadow-sm">
               {nav.map((item) => (
-                <Link key={item.to} to={item.to} className="text-sm font-semibold text-primary">
+                <a key={item.label} href={item.href} className="text-sm font-semibold text-primary">
                   {item.label}
-                </Link>
+                </a>
               ))}
               <p className="pt-2 text-[10px] font-semibold tracking-[0.16em] text-subtle">LEGAL</p>
               {legal.map((item) => (
@@ -78,6 +79,12 @@ export function SiteHeader() {
               ))}
             </div>
           </details>
+          <Link
+            to="/payoff"
+            className="hidden min-h-10 items-center rounded-sm bg-primary px-4 text-[11px] font-semibold text-primary-foreground hover:bg-link sm:inline-flex"
+          >
+            Start with the case study
+          </Link>
         </nav>
       </div>
     </header>

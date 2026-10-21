@@ -39,6 +39,7 @@ const empty: Application = {
   goalIntent: "mortgage",
   whyNow: "",
   campaign: "site",
+  consent: false,
 };
 
 function Field({
@@ -78,6 +79,7 @@ export function ApplyForm({ campaign = "site" }: { campaign?: string }) {
     if (!/^\d{4}$/.test(next.postcode.trim())) nextErrors.postcode = "Use a 4-digit Australian postcode.";
     if (next.goal.trim().length < 8) nextErrors.goal = "One sentence on the goal is enough.";
     if (next.whyNow.trim().length < 8) nextErrors.whyNow = "Tell us why this is the year, not next year.";
+    if (!next.consent) nextErrors.consent = "Tick consent. The box starts unticked.";
     return nextErrors;
   }
 
@@ -87,7 +89,7 @@ export function ApplyForm({ campaign = "site" }: { campaign?: string }) {
     const nextErrors = validate(values);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
-    const scored = scoreAndRoute(values);
+    const scored = scoreAndRoute({ ...values, consent: true });
     saveApplication(scored);
     navigate({ to: "/apply/confirm", search: { path: scored.path } });
   }
@@ -220,11 +222,26 @@ export function ApplyForm({ campaign = "site" }: { campaign?: string }) {
       </fieldset>
 
       <div className="space-y-3">
+        <label className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+          <input
+            type="checkbox"
+            className="mt-1"
+            checked={values.consent}
+            onChange={(event) => set("consent", event.target.checked)}
+          />
+          <span>
+            I agree to Avere contacting me about this application by email or phone. I can ask you to stop. This box starts unticked.
+          </span>
+        </label>
+        {errors.consent ? <p className="text-sm text-destructive">{errors.consent}</p> : null}
+        <p className="text-sm leading-[1.7] text-subtle">
+          Avere Private Wealth Pty Ltd collects your name, contact details, and the income, loan and asset bands on this form so Matt can decide whether a session or the Blueprint is the next step. On this preview the answers stay in this browser. They are not sent to a server. The privacy page says the same thing.
+        </p>
         <button type="submit" className="rounded-sm bg-primary px-5 py-4 text-[10px] font-semibold leading-none text-primary-foreground hover:bg-link" style={{ letterSpacing: ".18em" }}>
           SUBMIT THE APPLICATION
         </button>
         <p className="text-sm leading-[1.7] text-subtle">
-          Matt runs a capped number of sessions each week. This form decides whether you get a session or the Blueprint. It is general information until we know your situation. On this staging site the answers stay in this browser. They are not sent to a server.
+          Matt runs a capped number of sessions each week. This form decides whether you get a session or the Blueprint. It is general information until we know your situation. AFSL 525361.
         </p>
       </div>
     </form>
@@ -237,6 +254,7 @@ export function RegisterForm({ campaign }: { campaign: string }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
+  const [consent, setConsent] = useState(false);
 
   function onSubmit(event: FormEvent) {
     event.preventDefault();
@@ -244,10 +262,14 @@ export function RegisterForm({ campaign }: { campaign: string }) {
       setError("Name, email and a phone number.");
       return;
     }
+    if (!consent) {
+      setError("Tick consent. The box starts unticked.");
+      return;
+    }
     if (typeof window !== "undefined") {
       window.sessionStorage.setItem(
         "avere.register.v1",
-        JSON.stringify({ name, email, phone, campaign }),
+        JSON.stringify({ name, email, phone, campaign, consent: true, consentedAt: new Date().toISOString() }),
       );
     }
     navigate({ to: "/apply/confirm", search: { path: "register" } });
@@ -266,6 +288,10 @@ export function RegisterForm({ campaign }: { campaign: string }) {
       <label className="block">
         <span className={labelClass}>Phone</span>
         <input className={inputClass} type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+      </label>
+      <label className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+        <input type="checkbox" className="mt-1" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
+        <span>I agree to Avere emailing me about this. I can unsubscribe. This box starts unticked.</span>
       </label>
       {error ? <p className="text-sm text-destructive">{error}</p> : null}
       <button type="submit" className="rounded-sm bg-primary px-5 py-4 text-[10px] font-semibold leading-none text-primary-foreground hover:bg-link" style={{ letterSpacing: ".18em" }}>

@@ -16,7 +16,7 @@ function PrivacyPage() {
   return (
     <LegalArticle eyebrow="PRIVACY" title="Privacy">
       <p>
-        On this preview the application form writes your answers into this browser’s session storage. They are not emailed, not posted to a server, and not written to a client database. Closing the tab can clear them. Do not use the form for information you would not want left in the browser.
+        On this preview the application form, and the home-loan case-study form, write your answers into this browser’s session storage. They are not emailed, not posted to a server, and not written to a client database. Closing the tab can clear them. Do not use either form for information you would not want left in the browser. The case-study form asks for a name, an email, a mobile, the loan purpose, and a consent tick that starts unticked. The application also asks you to agree before it stores the answers.
       </p>
       <p>
         When the live site at avere.au is connected to a lead pipeline, the form will say so on the page, name who receives the answers, and link an updated version of this notice. Until that sentence appears on the form, assume nothing left the device.

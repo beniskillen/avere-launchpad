@@ -11,6 +11,7 @@ const legal = [
   { to: "/privacy", label: "Privacy" },
   { to: "/terms", label: "Terms" },
   { to: "/advice-disclaimer", label: "Advice disclaimer" },
+  { to: "/complaints", label: "Complaints" },
   { to: "/corrections", label: "Corrections" },
 ] as const;
 

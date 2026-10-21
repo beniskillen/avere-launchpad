@@ -205,7 +205,7 @@ export function DebtRecyclingTeaser() {
           <p className="text-[11px] font-semibold tracking-[0.16em] text-accent">IF THESE INPUTS STAYED STILL · 10% INCOME · NO GROWTH</p>
           <DebtChart result={sketch} />
           <p className="mt-4 text-xs leading-relaxed text-subtle">
-            Navy is the home loan. Gold is the debt that bought the portfolio. The blue mark is the portfolio at cost. At year 10 the home loan is {aud(year10.home)} and {aud(year10.investment)} is still borrowed.
+            Navy is the home loan. Gold is the debt that bought the portfolio. The height of the stack is those two added together. It is not the home-loan balance. The blue mark is the portfolio at cost. At year 10 the home loan is {aud(year10.home)} and {aud(year10.investment)} is still borrowed. The figures under each year are the same numbers.
           </p>
         </div>
         <div className="mt-6 grid gap-3 md:grid-cols-3">

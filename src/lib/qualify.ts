@@ -27,6 +27,7 @@ export type Application = {
   goalIntent: GoalIntent;
   whyNow: string;
   campaign: string;
+  consent: boolean;
 };
 
 export type ScoredApplication = Application & {

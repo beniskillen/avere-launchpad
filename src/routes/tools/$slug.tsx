@@ -163,6 +163,7 @@ function Quiz() {
       goalIntent: "mortgage",
       whyNow: "",
       campaign: "quiz",
+      consent: false,
     };
     setResult(routeApplication(fake));
   }

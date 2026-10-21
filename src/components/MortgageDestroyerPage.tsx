@@ -124,12 +124,20 @@ export function MortgageDestroyerPage({ brand = false, home = false }: { brand?:
               How much of yours is sitting in the walls, doing nothing but waiting for the 30-year term to finish?
             </p>
           )}
-          <a
-            href="#apply"
-            className="mt-8 inline-block rounded-sm bg-primary-foreground px-6 py-4 text-[11px] font-semibold tracking-[0.16em] text-primary"
-          >
-            APPLY FOR A WEALTH STRATEGY SESSION
-          </a>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#apply"
+              className="inline-block rounded-sm bg-primary-foreground px-6 py-4 text-[11px] font-semibold tracking-[0.16em] text-primary"
+            >
+              APPLY FOR A WEALTH STRATEGY SESSION
+            </a>
+            <Link
+              to="/payoff"
+              className="inline-block rounded-sm border border-primary-foreground/40 px-6 py-4 text-[11px] font-semibold tracking-[0.16em] text-primary-foreground"
+            >
+              SEE THE CASE STUDY
+            </Link>
+          </div>
           <p className="mt-4 max-w-[560px] text-sm leading-relaxed text-primary-foreground/60">
             {home
               ? "General information, not personal advice. “As little risk as possible” is a limit: if the household cannot hold a bad year, the page says pay the loan and stop. Borrowing to invest can lose money. This is not a promise the loan finishes early."
@@ -259,6 +267,27 @@ export function MortgageDestroyerPage({ brand = false, home = false }: { brand?:
         </div>
       </section>
 
+      <section className="border-t border-border bg-background px-6 py-16 md:px-10">
+        <div className="mx-auto max-w-[760px]">
+          <p className="mb-4 text-[11px] font-semibold tracking-[0.22em] text-link">A MORTGAGE ENQUIRY</p>
+          <h2 className="font-display text-3xl font-medium text-primary md:text-4xl">Refinance, a new loan, or paying this one down faster.</h2>
+          <div className="mt-5 space-y-4 text-base leading-[1.75] text-muted-foreground">
+            <p>
+              That enquiry starts with the years on the current loan, not with a rate card. This page does not say we will secure the best terms, and it does not quote a competitive rate. Those lines were on the old site. They are not carried across.
+            </p>
+            <p>
+              The first step is the case study, then a few questions, then a session if the mortgage is the problem. Credit assistance, if it is offered later, sits under a separate authorisation. The Your Corner credit-representative line is not on this site. Compliance confirms that wording before any of this is treated as published.
+            </p>
+          </div>
+          <Link
+            to="/payoff"
+            className="mt-8 inline-block rounded-sm bg-primary px-6 py-4 text-[11px] font-semibold tracking-[0.16em] text-primary-foreground"
+          >
+            START WITH THE CASE STUDY
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-secondary px-6 py-16 md:px-10">
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="font-display text-3xl font-medium text-primary md:text-4xl">The session, then the written strategy.</h2>
@@ -305,7 +334,7 @@ export function MortgageDestroyerPage({ brand = false, home = false }: { brand?:
             ))}
           </div>
           <p className="mx-auto mt-8 max-w-[720px] text-center text-xs leading-relaxed text-subtle">
-            Results vary. Past outcomes are not guarantees of future performance. No page on this site promises a return, a tax outcome, or a property result.
+            The +303% and +340% cards are long-horizon outcomes from coordinated advice in the Your Corner years. They are not the result of a mortgage enquiry, and they are not cleared for a public campaign until Matt confirms consent, the source figures and the wording. Results vary. Past outcomes are not guarantees of future performance.
           </p>
         </div>
       </section>

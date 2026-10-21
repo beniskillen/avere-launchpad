@@ -13,11 +13,13 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdviceDisclaimerRouteImport } from './routes/advice-disclaimer'
 import { Route as ApplyRouteRouteImport } from './routes/apply/route'
+import { Route as ComplaintsRouteImport } from './routes/complaints'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CorrectionsRouteImport } from './routes/corrections'
 import { Route as FsgRouteImport } from './routes/fsg'
 import { Route as LearnRouteRouteImport } from './routes/learn/route'
 import { Route as LpRouteRouteImport } from './routes/lp/route'
+import { Route as PayoffRouteRouteImport } from './routes/payoff/route'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProofRouteRouteImport } from './routes/proof/route'
 import { Route as ServicesRouteRouteImport } from './routes/services/route'
@@ -30,6 +32,10 @@ import { Route as LearnIndexRouteImport } from './routes/learn/index'
 import { Route as LearnSlugRouteImport } from './routes/learn/$slug'
 import { Route as LpIndexRouteImport } from './routes/lp/index'
 import { Route as LpSlugRouteImport } from './routes/lp/$slug'
+import { Route as PayoffIndexRouteImport } from './routes/payoff/index'
+import { Route as PayoffNextRouteImport } from './routes/payoff/next'
+import { Route as PayoffSurveyRouteImport } from './routes/payoff/survey'
+import { Route as PayoffVideoRouteImport } from './routes/payoff/video'
 import { Route as ProofIndexRouteImport } from './routes/proof/index'
 import { Route as ProofSlugRouteImport } from './routes/proof/$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
@@ -58,6 +64,11 @@ const ApplyRouteRoute = ApplyRouteRouteImport.update({
   path: '/apply',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComplaintsRoute = ComplaintsRouteImport.update({
+  id: '/complaints',
+  path: '/complaints',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -81,6 +92,11 @@ const LearnRouteRoute = LearnRouteRouteImport.update({
 const LpRouteRoute = LpRouteRouteImport.update({
   id: '/lp',
   path: '/lp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PayoffRouteRoute = PayoffRouteRouteImport.update({
+  id: '/payoff',
+  path: '/payoff',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -143,6 +159,26 @@ const LpSlugRoute = LpSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => LpRouteRoute,
 } as any)
+const PayoffIndexRoute = PayoffIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PayoffRouteRoute,
+} as any)
+const PayoffNextRoute = PayoffNextRouteImport.update({
+  id: '/next',
+  path: '/next',
+  getParentRoute: () => PayoffRouteRoute,
+} as any)
+const PayoffSurveyRoute = PayoffSurveyRouteImport.update({
+  id: '/survey',
+  path: '/survey',
+  getParentRoute: () => PayoffRouteRoute,
+} as any)
+const PayoffVideoRoute = PayoffVideoRouteImport.update({
+  id: '/video',
+  path: '/video',
+  getParentRoute: () => PayoffRouteRoute,
+} as any)
 const ProofIndexRoute = ProofIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -184,11 +220,13 @@ export interface FileRoutesByFullPath {
   '/apply': typeof ApplyRouteRouteWithChildren
   '/learn': typeof LearnRouteRouteWithChildren
   '/lp': typeof LpRouteRouteWithChildren
+  '/payoff': typeof PayoffRouteRouteWithChildren
   '/proof': typeof ProofRouteRouteWithChildren
   '/services': typeof ServicesRouteRouteWithChildren
   '/tools': typeof ToolsRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/advice-disclaimer': typeof AdviceDisclaimerRoute
+  '/complaints': typeof ComplaintsRoute
   '/contact': typeof ContactRoute
   '/corrections': typeof CorrectionsRoute
   '/fsg': typeof FsgRoute
@@ -198,6 +236,9 @@ export interface FileRoutesByFullPath {
   '/apply/confirm': typeof ApplyConfirmRoute
   '/learn/$slug': typeof LearnSlugRoute
   '/lp/$slug': typeof LpSlugRoute
+  '/payoff/next': typeof PayoffNextRoute
+  '/payoff/survey': typeof PayoffSurveyRoute
+  '/payoff/video': typeof PayoffVideoRoute
   '/proof/$slug': typeof ProofSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -205,6 +246,7 @@ export interface FileRoutesByFullPath {
   '/apply/': typeof ApplyIndexRoute
   '/learn/': typeof LearnIndexRoute
   '/lp/': typeof LpIndexRoute
+  '/payoff/': typeof PayoffIndexRoute
   '/proof/': typeof ProofIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/tools/': typeof ToolsIndexRoute
@@ -213,6 +255,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advice-disclaimer': typeof AdviceDisclaimerRoute
+  '/complaints': typeof ComplaintsRoute
   '/contact': typeof ContactRoute
   '/corrections': typeof CorrectionsRoute
   '/fsg': typeof FsgRoute
@@ -222,6 +265,9 @@ export interface FileRoutesByTo {
   '/apply/confirm': typeof ApplyConfirmRoute
   '/learn/$slug': typeof LearnSlugRoute
   '/lp/$slug': typeof LpSlugRoute
+  '/payoff/next': typeof PayoffNextRoute
+  '/payoff/survey': typeof PayoffSurveyRoute
+  '/payoff/video': typeof PayoffVideoRoute
   '/proof/$slug': typeof ProofSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -229,6 +275,7 @@ export interface FileRoutesByTo {
   '/apply': typeof ApplyIndexRoute
   '/learn': typeof LearnIndexRoute
   '/lp': typeof LpIndexRoute
+  '/payoff': typeof PayoffIndexRoute
   '/proof': typeof ProofIndexRoute
   '/services': typeof ServicesIndexRoute
   '/tools': typeof ToolsIndexRoute
@@ -239,11 +286,13 @@ export interface FileRoutesById {
   '/apply': typeof ApplyRouteRouteWithChildren
   '/learn': typeof LearnRouteRouteWithChildren
   '/lp': typeof LpRouteRouteWithChildren
+  '/payoff': typeof PayoffRouteRouteWithChildren
   '/proof': typeof ProofRouteRouteWithChildren
   '/services': typeof ServicesRouteRouteWithChildren
   '/tools': typeof ToolsRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/advice-disclaimer': typeof AdviceDisclaimerRoute
+  '/complaints': typeof ComplaintsRoute
   '/contact': typeof ContactRoute
   '/corrections': typeof CorrectionsRoute
   '/fsg': typeof FsgRoute
@@ -253,6 +302,9 @@ export interface FileRoutesById {
   '/apply/confirm': typeof ApplyConfirmRoute
   '/learn/$slug': typeof LearnSlugRoute
   '/lp/$slug': typeof LpSlugRoute
+  '/payoff/next': typeof PayoffNextRoute
+  '/payoff/survey': typeof PayoffSurveyRoute
+  '/payoff/video': typeof PayoffVideoRoute
   '/proof/$slug': typeof ProofSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tools/$slug': typeof ToolsSlugRoute
@@ -260,6 +312,7 @@ export interface FileRoutesById {
   '/apply/': typeof ApplyIndexRoute
   '/learn/': typeof LearnIndexRoute
   '/lp/': typeof LpIndexRoute
+  '/payoff/': typeof PayoffIndexRoute
   '/proof/': typeof ProofIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/tools/': typeof ToolsIndexRoute
@@ -271,11 +324,13 @@ export interface FileRouteTypes {
     | '/apply'
     | '/learn'
     | '/lp'
+    | '/payoff'
     | '/proof'
     | '/services'
     | '/tools'
     | '/about'
     | '/advice-disclaimer'
+    | '/complaints'
     | '/contact'
     | '/corrections'
     | '/fsg'
@@ -285,6 +340,9 @@ export interface FileRouteTypes {
     | '/apply/confirm'
     | '/learn/$slug'
     | '/lp/$slug'
+    | '/payoff/next'
+    | '/payoff/survey'
+    | '/payoff/video'
     | '/proof/$slug'
     | '/services/$slug'
     | '/tools/$slug'
@@ -292,6 +350,7 @@ export interface FileRouteTypes {
     | '/apply/'
     | '/learn/'
     | '/lp/'
+    | '/payoff/'
     | '/proof/'
     | '/services/'
     | '/tools/'
@@ -300,6 +359,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advice-disclaimer'
+    | '/complaints'
     | '/contact'
     | '/corrections'
     | '/fsg'
@@ -309,6 +369,9 @@ export interface FileRouteTypes {
     | '/apply/confirm'
     | '/learn/$slug'
     | '/lp/$slug'
+    | '/payoff/next'
+    | '/payoff/survey'
+    | '/payoff/video'
     | '/proof/$slug'
     | '/services/$slug'
     | '/tools/$slug'
@@ -316,6 +379,7 @@ export interface FileRouteTypes {
     | '/apply'
     | '/learn'
     | '/lp'
+    | '/payoff'
     | '/proof'
     | '/services'
     | '/tools'
@@ -325,11 +389,13 @@ export interface FileRouteTypes {
     | '/apply'
     | '/learn'
     | '/lp'
+    | '/payoff'
     | '/proof'
     | '/services'
     | '/tools'
     | '/about'
     | '/advice-disclaimer'
+    | '/complaints'
     | '/contact'
     | '/corrections'
     | '/fsg'
@@ -339,6 +405,9 @@ export interface FileRouteTypes {
     | '/apply/confirm'
     | '/learn/$slug'
     | '/lp/$slug'
+    | '/payoff/next'
+    | '/payoff/survey'
+    | '/payoff/video'
     | '/proof/$slug'
     | '/services/$slug'
     | '/tools/$slug'
@@ -346,6 +415,7 @@ export interface FileRouteTypes {
     | '/apply/'
     | '/learn/'
     | '/lp/'
+    | '/payoff/'
     | '/proof/'
     | '/services/'
     | '/tools/'
@@ -356,11 +426,13 @@ export interface RootRouteChildren {
   ApplyRouteRoute: typeof ApplyRouteRouteWithChildren
   LearnRouteRoute: typeof LearnRouteRouteWithChildren
   LpRouteRoute: typeof LpRouteRouteWithChildren
+  PayoffRouteRoute: typeof PayoffRouteRouteWithChildren
   ProofRouteRoute: typeof ProofRouteRouteWithChildren
   ServicesRouteRoute: typeof ServicesRouteRouteWithChildren
   ToolsRouteRoute: typeof ToolsRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AdviceDisclaimerRoute: typeof AdviceDisclaimerRoute
+  ComplaintsRoute: typeof ComplaintsRoute
   ContactRoute: typeof ContactRoute
   CorrectionsRoute: typeof CorrectionsRoute
   FsgRoute: typeof FsgRoute
@@ -399,6 +471,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApplyRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/complaints': {
+      id: '/complaints'
+      path: '/complaints'
+      fullPath: '/complaints'
+      preLoaderRoute: typeof ComplaintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -432,6 +511,13 @@ declare module '@tanstack/react-router' {
       path: '/lp'
       fullPath: '/lp'
       preLoaderRoute: typeof LpRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payoff': {
+      id: '/payoff'
+      path: '/payoff'
+      fullPath: '/payoff'
+      preLoaderRoute: typeof PayoffRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -517,6 +603,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/lp/$slug'
       preLoaderRoute: typeof LpSlugRouteImport
       parentRoute: typeof LpRouteRoute
+    }
+    '/payoff/': {
+      id: '/payoff/'
+      path: '/'
+      fullPath: '/payoff/'
+      preLoaderRoute: typeof PayoffIndexRouteImport
+      parentRoute: typeof PayoffRouteRoute
+    }
+    '/payoff/next': {
+      id: '/payoff/next'
+      path: '/next'
+      fullPath: '/payoff/next'
+      preLoaderRoute: typeof PayoffNextRouteImport
+      parentRoute: typeof PayoffRouteRoute
+    }
+    '/payoff/survey': {
+      id: '/payoff/survey'
+      path: '/survey'
+      fullPath: '/payoff/survey'
+      preLoaderRoute: typeof PayoffSurveyRouteImport
+      parentRoute: typeof PayoffRouteRoute
+    }
+    '/payoff/video': {
+      id: '/payoff/video'
+      path: '/video'
+      fullPath: '/payoff/video'
+      preLoaderRoute: typeof PayoffVideoRouteImport
+      parentRoute: typeof PayoffRouteRoute
     }
     '/proof/': {
       id: '/proof/'
@@ -611,6 +725,24 @@ const LpRouteRouteChildren: LpRouteRouteChildren = {
 const LpRouteRouteWithChildren =
   LpRouteRoute._addFileChildren(LpRouteRouteChildren)
 
+interface PayoffRouteRouteChildren {
+  PayoffNextRoute: typeof PayoffNextRoute
+  PayoffSurveyRoute: typeof PayoffSurveyRoute
+  PayoffVideoRoute: typeof PayoffVideoRoute
+  PayoffIndexRoute: typeof PayoffIndexRoute
+}
+
+const PayoffRouteRouteChildren: PayoffRouteRouteChildren = {
+  PayoffNextRoute: PayoffNextRoute,
+  PayoffSurveyRoute: PayoffSurveyRoute,
+  PayoffVideoRoute: PayoffVideoRoute,
+  PayoffIndexRoute: PayoffIndexRoute,
+}
+
+const PayoffRouteRouteWithChildren = PayoffRouteRoute._addFileChildren(
+  PayoffRouteRouteChildren,
+)
+
 interface ProofRouteRouteChildren {
   ProofSlugRoute: typeof ProofSlugRoute
   ProofIndexRoute: typeof ProofIndexRoute
@@ -660,11 +792,13 @@ const rootRouteChildren: RootRouteChildren = {
   ApplyRouteRoute: ApplyRouteRouteWithChildren,
   LearnRouteRoute: LearnRouteRouteWithChildren,
   LpRouteRoute: LpRouteRouteWithChildren,
+  PayoffRouteRoute: PayoffRouteRouteWithChildren,
   ProofRouteRoute: ProofRouteRouteWithChildren,
   ServicesRouteRoute: ServicesRouteRouteWithChildren,
   ToolsRouteRoute: ToolsRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AdviceDisclaimerRoute: AdviceDisclaimerRoute,
+  ComplaintsRoute: ComplaintsRoute,
   ContactRoute: ContactRoute,
   CorrectionsRoute: CorrectionsRoute,
   FsgRoute: FsgRoute,

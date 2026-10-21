@@ -26,7 +26,7 @@ export const services: ServicePage[] = [
       "That gap is where equity sits still, where a trust gets set up after the contract, and where you pay for advice you then have to implement yourself.",
     ],
     mechanism: [
-      "Strategic Private Wealth is the relationship after the Mortgage Destroyer, or instead of it if the debt is not the first problem. You get a written roadmap: cash flow and structure, superannuation, tax, portfolio construction, risk protection, wealth transfer, reporting, and a review while the year is still usable.",
+      "Strategic Private Wealth is the relationship after the Mortgage Destroyer, or instead of it if the debt is not the first problem. You get a written roadmap: cash flow and structure, superannuation, tax, portfolio construction, risk protection, wealth transfer, reporting, and a review while the year is still usable. This page is general information. It does not consider your objectives, financial situation or needs, and it does not promise a return.",
       "The same page is what accounting, broking and, when it is relevant, property work from. You stop forwarding emails.",
     ],
     included: [
@@ -34,6 +34,7 @@ export const services: ServicePage[] = [
       "Objectives you can check, not a slide of intentions",
       "A 90-day check-in and an annual review",
       "Coordination with the accountant and the broker you already use, if you want to keep them",
+      "The names on the current Your Corner site, kept only where the licence and the adviser are authorised to do the work: investment, portfolio management, SMSF, retirement planning, business succession, insurance. Which of those stay is Matt's call, with compliance.",
     ],
     price:
       "The ongoing work is priced in writing before you commit. The $995 Mortgage Destroyer package is a separate entry, and it is refundable. We do not quote a retainer on this page because the number depends on the entities and the debt, and a guessed number would be the opposite of how we work.",
@@ -114,6 +115,7 @@ export const services: ServicePage[] = [
       "A written list of what to do before the next lodgement, and what to leave",
       "Coordination with the strategy page",
       "Pricing before you sign",
+      "The names from the current Your Corner site, as a list only: tax, business management, self-employed and family accounting, SMSF. Who delivers each one is Matt's call. This page does not assume the return is still lodged inside Avere.",
     ],
     price:
       "The accounting engagement is priced in writing before you commit. If we do not save you more than that annual fee in the first return we lodge, we refund the difference. That promise belongs to the accounting work, not to the $995 strategy package.",
@@ -149,6 +151,7 @@ export const services: ServicePage[] = [
       "The sequence: deed, then finance, then purchase",
       "What the structure will not protect you from",
       "A written fee before any legal work starts",
+      "Legal names from the current Your Corner site: commercial law, estate planning, conveyancing. Lawyers do that work. Who is instructed is Matt's call.",
     ],
     price:
       "Trust work is priced in writing before anyone drafts a deed. Setup and the annual administration are separate numbers. We do not publish a flat fee here because the deed, the state and the existing entities change the job.",
